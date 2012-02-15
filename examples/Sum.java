@@ -61,8 +61,8 @@ final class Sum {
         {
         final Integer[] a = {2, 3, 4};
 
-		{
-		List<Integer> x = Arrays.asList(a);
+        {
+        List<Integer> x = Arrays.asList(a);
         assert(sum_3(x) == 9);
         assert(sum_4(x) == 9);
         assert(sum_5(x) == 9);
