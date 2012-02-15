@@ -12,26 +12,33 @@
 
 int sum_1 (int* a, int n) {
     int s = 0;
-    for (int i = 0; i != n; ++i)
+    for (int i = 0; i < n; ++i)
         s += a[i];
     return s;}
 
 int sum_2 (int* b, int* e) {
     int s = 0;
-    while (b != e) {
+    while (b < e) {
         s += *b;
         ++b;}
     return s;}
 
 template <typename T>
 T sum_3 (T* b, T* e, T v) {
-    while (b != e) {
+    while (b < e) {
         v += *b;
         ++b;}
     return v;}
 
 template <typename I, typename T>
 T sum_4 (I b, I e, T v) {
+    while (b < e) {
+        v += *b;
+        ++b;}
+    return v;}
+
+template <typename I, typename T>
+T sum_5 (I b, I e, T v) {
     while (b != e) {
         v += *b;
         ++b;}
@@ -47,6 +54,7 @@ int main () {
     assert(     sum_2(a, a + 3)    == 9);
     assert(     sum_3(a, a + 3, 0) == 9);
     assert(     sum_4(a, a + 3, 0) == 9);
+    assert(     sum_5(a, a + 3, 0) == 9);
     assert(accumulate(a, a + 3, 0) == 9);
 
     {
@@ -63,6 +71,7 @@ int main () {
     assert(     sum_3(&x[0], &x[3], 0) == 9);
     assert(     sum_3(&*b,   &*e,   0) == 9);
     assert(     sum_4(b, e, 0)         == 9);
+    assert(     sum_5(b, e, 0)         == 9);
     assert(accumulate(b, e, 0)         == 9);
     }
 
@@ -73,7 +82,8 @@ int main () {
 //  assert(     sum_1(x, 3)    == 9);
 //  assert(     sum_2(b, e)    == 9);
 //  assert(     sum_3(b, e, 0) == 9);
-    assert(     sum_4(b, e, 0) == 9);
+//  assert(     sum_4(b, e, 0) == 9);
+    assert(     sum_5(b, e, 0) == 9);
     assert(accumulate(b, e, 0) == 9);
     }
 
@@ -84,7 +94,8 @@ int main () {
 //  assert(     sum_1(x, 3)    == 9);
 //  assert(     sum_2(b, e)    == 9);
 //  assert(     sum_3(b, e, 0) == 9);
-    assert(     sum_4(b, e, 0) == 9);
+//  assert(     sum_4(b, e, 0) == 9);
+    assert(     sum_5(b, e, 0) == 9);
     assert(accumulate(b, e, 0) == 9);
     }
 

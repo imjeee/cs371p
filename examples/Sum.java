@@ -9,6 +9,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.TreeSet;
 
 final class Sum {
@@ -30,13 +31,19 @@ final class Sum {
             s += x.get(i);
         return s;}
 
-    public static int sum_4 (Collection<Integer> x) {
+    public static int sum_4 (List<Integer> x) {
+        int s = 0;
+        for (ListIterator<Integer> p = x.listIterator(); p.hasNext();)
+            s += p.next();
+        return s;}
+
+    public static int sum_5 (Collection<Integer> x) {
         int s = 0;
         for (Iterator<Integer> p = x.iterator(); p.hasNext();)
             s += p.next();
         return s;}
 
-    public static int sum_5 (Collection<Integer> x) {
+    public static int sum_6 (Collection<Integer> x) {
         int s = 0;
         for (int v : x)
             s += v;
@@ -59,6 +66,7 @@ final class Sum {
         assert(sum_3(x) == 9);
         assert(sum_4(x) == 9);
         assert(sum_5(x) == 9);
+        assert(sum_6(x) == 9);
         }
 
         {
@@ -66,6 +74,7 @@ final class Sum {
         assert(sum_3(x) == 9);
         assert(sum_4(x) == 9);
         assert(sum_5(x) == 9);
+        assert(sum_6(x) == 9);
         }
 
         {
@@ -73,20 +82,23 @@ final class Sum {
         assert(sum_3(x) == 9);
         assert(sum_4(x) == 9);
         assert(sum_5(x) == 9);
+        assert(sum_6(x) == 9);
         }
 
         {
         final TreeSet<Integer> x = new TreeSet<Integer>(Arrays.asList(a));
 //      assert(sum_3(x) == 9);
-        assert(sum_4(x) == 9);
+//      assert(sum_4(x) == 9);
         assert(sum_5(x) == 9);
+        assert(sum_6(x) == 9);
         }
 
         {
         final HashSet<Integer> x = new HashSet<Integer>(Arrays.asList(a));
-//      assert(sum_3(x) == 9);
-        assert(sum_4(x) == 9);
+//      assert(sum_3(x) == 9);/
+//      assert(sum_4(x) == 9);
         assert(sum_5(x) == 9);
+        assert(sum_6(x) == 9);
         }
         }
 
