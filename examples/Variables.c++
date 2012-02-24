@@ -2,7 +2,7 @@
 // Variables.c++
 // -------------
 
-#include <algorithm> // assert
+#include <algorithm> // equal
 #include <cassert>   // assert
 #include <iostream>  // cout, endl
 
