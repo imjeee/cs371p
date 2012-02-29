@@ -14,7 +14,6 @@ CS371p: Quiz #16 (5 pts)
 int main () {
     using namespace std;
 
-
     {
     typedef const int* pointer;
     int      i = 2;
