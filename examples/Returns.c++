@@ -18,12 +18,14 @@ int& h () {
     return k;} // warning: reference to local variable 'k' returned
 
 const char* c1 () {
-    const char a[] = "abc"; // 'a' is a local array
-//  a = "def";              // error: assignment of read-only variable ‘a’
-    return a;}              // warning: address of local variable 'a' returned
+    const char a[] = "abcd"; // 'a' is a local array
+    assert(sizeof(a) == 5);
+//  a = "def";               // error: assignment of read-only variable ‘a’
+    return a;}               // warning: address of local variable 'a' returned
 
 const char* c2 () {
-    const char* a = "abc"; // 'a' is a local pointer
+    const char* a = "abcd"; // 'a' is a local pointer
+    assert(sizeof(a) == 8);
     a = "def";
     return a;}
 
@@ -59,6 +61,7 @@ int main () {
 //  assert(r == 2);  // Valgrind: Conditional jump or move depends on uninitialised value(s)
     }
 
+    assert(c1() != "abc");
     assert(c2() == c3());
 
     cout << "Done." << endl;

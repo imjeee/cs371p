@@ -172,8 +172,9 @@ int main () {
     typedef       int* pointer;
     typedef const int* pointer_to_constant;
     pointer              p  = &i;
+    pointer_to_constant  pc = p;
 //  pointer_to_constant& r  = p;            // error: invalid initialization of reference of type ‘const int*&’ from expression of type ‘int*’
-    pointer_to_constant  pc = &i;
+//  pointer              q  = pc;           // error: invalid conversion from ‘const int*’ to ‘int*’
 //  pointer&             s  = pc;           // error: invalid initialization of reference of type ‘int*&’ from expression of type ‘const int*’
     }
 
@@ -184,8 +185,9 @@ int main () {
     typedef       int* const const_pointer;
     typedef const int* const const_pointer_to_constant;
     const_pointer              cp  = &i;
+    const_pointer_to_constant  cpc = cp;
     const_pointer_to_constant& r   = cp;
-    const_pointer_to_constant  cpc = &i;
+//  const_pointer              cq  = cpc;               // error: invalid conversion from ‘const int* const’ to ‘int*’
 //  const_pointer&             s   = cpc;               // error: invalid initialization of reference of type ‘int* const&’ from expression of type ‘const int* const’
     }
 
