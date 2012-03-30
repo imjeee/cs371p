@@ -7,11 +7,11 @@ class A {
 
     public A (int i) {
         _i = i;
-        System.out.println("A.A(int)");}
+        System.out.println("A(int)");}
 
     public A (A that) {
         _i = that._i;
-        System.out.println("A.A(int)");}
+        System.out.println("A(A)");}
 
     public void finalize () {
         System.out.println("A.finalize()");}}
@@ -21,11 +21,11 @@ class B {
 
     public B (int i) {
         _x = new A(i);
-        System.out.println("B.B(int)");}
+        System.out.println("B(int)");}
 
     public B (A x) {
         _x = new A(x);
-        System.out.println("B.B(A)");}
+        System.out.println("B(A)");}
 
     public void finalize () {
         System.out.println("B.finalize()");
@@ -36,31 +36,23 @@ final class ConstructorsDestructors {
         System.out.println("ConstructorsDestructors.java");
 
         A x = new A(2);
-        x.finalize();
         System.out.println();
 
         B y = new B(2);
-        y.finalize();
         System.out.println();
 
         B z = new B(x);
-        y.finalize();
 
         System.out.println("Done.");}}
 
 /*
 ConstructorsDestructors.java
-A.A(int)
-A.finalize()
+A(int)
 
-A.A(int)
-B.B(int)
-B.finalize()
-A.finalize()
+A(int)
+B(int)
 
-A.A(int)
-B.B(A)
-B.finalize()
-A.finalize()
+A(A)
+B(A)
 Done.
 */
