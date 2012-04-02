@@ -13,15 +13,15 @@ class A {
 
     public:
         A (int v, int* p, int& r) :
-                _v (v),
-                _p (p),
                 _r (r) {
+            _v = v;
+            _p = p;
             std::cout << "A(int, int*, int&)" << std::endl;}
 
         A (const A& that) :
-                _v (that._v),
-                _p (that._p),
                 _r (that._r) {
+            _v = that._v;
+            _p = that._p;
             std::cout << "A(const A&)" << std::endl;}
 
         ~A () {

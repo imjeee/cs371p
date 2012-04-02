@@ -6,6 +6,7 @@ CS371p: Quiz #25 (5 pts)
 1. What is the output of the following program?
    Alternatively, the line might not compile.
    If a line doesn't compile, which line is illegal.
+   (4 pts)
 
 false
 doesn't compile
